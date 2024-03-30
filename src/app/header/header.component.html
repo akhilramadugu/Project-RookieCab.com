@@ -1,0 +1,77 @@
+<nav
+  class="navbar navbar-expand-md bg-body py-3"
+  style="transform: perspective(0px) scale(1); filter: brightness(89%)"
+>
+  <div class="container">
+    <i class="la la-car" style="font-size: 30px"></i
+    ><a
+      class="navbar-brand d-flex align-items-center"
+      href="#"
+      (click)="onClickAbout()"
+      ><img
+        class="img-fluid me-2"
+        src="../../assets/img.png"
+        style="height: 30px"
+      /><span>RookieCab</span></a
+    ><button
+      data-bs-toggle="collapse"
+      class="navbar-toggler"
+      data-bs-target="#navcol-2"
+    >
+      <span class="visually-hidden">Toggle navigation</span
+      ><span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navcol-2">
+      <div class="dropdown">
+        <a
+          class="dropdown-toggle link-secondary"
+          aria-expanded="false"
+          data-bs-toggle="dropdown"
+          href="#"
+          style="padding-right: 0px"
+          >Login</a
+        >
+        <div class="dropdown-menu">
+          <button class="dropdown-item" href="#" (click)="onClickLoginUser()">
+            User Login</button
+          ><a class="dropdown-item" href="#" (click)="onClickLoginRider()"
+            >Rider Login</a
+          >
+        </div>
+      </div>
+      <div class="dropdown">
+        <a
+          class="dropdown-toggle link-secondary pl-15 pl-sm-0"
+          aria-expanded="false"
+          data-bs-toggle="dropdown"
+          href="#"
+          >Signup</a
+        >
+        <div class="dropdown-menu">
+          <a class="dropdown-item" href="#" (click)="onClickSignupUser()"
+            >User Signup</a
+          ><a class="dropdown-item" href="#" (click)="onClickSignupRider()"
+            >Rider Signup</a
+          >
+        </div>
+      </div>
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a class="nav-link active" href="#" (click)="onClickAbout()">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#" (click)="onClickContact()">Contact</a>
+        </li>
+        <li class="nav-item"></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<div class="matter">
+  <app-about *ngIf="arrButtons[0] === true"></app-about>
+  <app-contact *ngIf="arrButtons[1] === true"></app-contact>
+  <app-login *ngIf="arrButtons[2] === true"></app-login>
+  <app-signup *ngIf="arrButtons[3] === true"></app-signup>
+  <app-login-rider *ngIf="arrButtons[4] === true"></app-login-rider>
+  <app-signup-rider *ngIf="arrButtons[5] === true"></app-signup-rider>
+</div>

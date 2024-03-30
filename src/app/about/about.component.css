@@ -1,0 +1,22 @@
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  height: 100%;
+}
+
+.heading {
+  margin-top: 100px; /* Adjust this value to control the distance from the navbar */
+  font-size: 2rem; /* Adjust the font size as needed */
+  font-family: "quote", sans-serif;
+  filter: brightness(1.4);
+}
+
+.matter {
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-top: 50px;
+  font-size: 1rem;
+  font-family: "content", sans-serif;
+}

@@ -1,0 +1,70 @@
+<div>
+  <section class="py-4 py-xl-5" *ngIf="!clickedAvailable">
+    <div class="container h-100">
+      <div class="row h-100">
+        <div
+          class="col-md-10 col-xl-8 text-center d-flex d-sm-flex d-md-flex justify-content-center align-items-center mx-auto justify-content-md-start align-items-md-center justify-content-xl-center"
+        >
+          <div>
+            <h2 class="text-uppercase fw-bold mb-3">Available for rides?</h2>
+            <p class="mb-4">
+              Click on the button below to make yourself available for rides
+              today.
+            </p>
+            <button
+              class="btn btn-primary fs-5 me-2 py-2 px-4"
+              type="button"
+              (click)="onClickAvailable()"
+            >
+              Available
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+<div>
+  <section class="py-4 py-xl-5" *ngIf="clickedAvailable">
+    <div class="container h-100">
+      <div class="row h-100">
+        <div
+          class="col-md-10 col-xl-8 text-center d-flex d-sm-flex d-md-flex justify-content-center align-items-center mx-auto justify-content-md-start align-items-md-center justify-content-xl-center"
+        >
+          <div>
+            <h2 class="text-uppercase fw-bold mb-3">Done for today?</h2>
+            <p class="mb-4">
+              Click on the button below to make yourself unavailable for rides
+              today.
+            </p>
+            <button
+              class="btn btn-primary fs-5 me-2 py-2 px-4"
+              type="button"
+              (click)="onClickDone()"
+            >
+              Unavailable
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <app-available-rides *ngIf="verfiedRider"></app-available-rides>
+</div>
+<!-- <div class="container">
+  <div class="row">
+    <div class="col-md-4" *ngFor="let ride of rides">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Ride ID: {{ ride.id }}</h5>
+          <p class="card-text">From: {{ ride.fromAddress }}</p>
+          <p class="card-text">To: {{ ride.toAddress }}</p>
+          <p class="card-text">Date and Time: {{ ride.dateAndTime }}</p>
+          <button class="btn btn-primary" (click)="lockRide(ride.id)">
+            Lock
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->

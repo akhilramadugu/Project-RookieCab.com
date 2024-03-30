@@ -1,0 +1,64 @@
+.fixed-container {
+  position: relative;
+  /*  top: 0;
+  left: 0;
+  right: 0;
+  background-color: white; 
+  /*  z-index: 1000; */
+  padding: 10px 0;
+}
+
+.suggestions-list {
+  position: absolute;
+  width: 50%;
+  z-index: 10;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-top: none;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.container.my-3 {
+  margin-top: 0 !important;
+}
+
+.list-group-item:hover {
+  cursor: pointer;
+}
+
+.bi:hover {
+  cursor: pointer;
+}
+
+.message {
+  padding: 10px;
+  margin-top: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f8f8f8;
+}
+
+.message p {
+  margin: 0;
+  color: #333;
+  font-size: 16px;
+}
+
+.invalid-message {
+  border-color: #f44336;
+  background-color: #ffd2d2;
+}
+
+.map-container {
+  height: 600px;
+  margin-top: 50px;
+}
+
+.padder {
+  padding-top: 10px;
+}
+
+.warningText {
+  color: yellow;
+}

@@ -1,0 +1,37 @@
+body, html {
+    height: 100%;
+    margin: 0;
+}
+
+.bg-image {
+    position: relative;
+    height: 100%;
+}
+
+.bg-image::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url("assets/img.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: 0.15; /* Set the opacity of the background image */
+}
+
+.bg-image > * {
+    position: relative; /* Ensure content is above the background */
+}
+
+@font-face {
+    font-family: 'quote';
+    src: url('assets/fonts/Pacifico-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'content';
+    src: url('assets/fonts/Domine-VariableFont_wght.ttf') format('truetype');
+}

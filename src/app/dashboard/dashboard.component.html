@@ -1,0 +1,47 @@
+<div *ngIf="isUser">
+  <nav
+    class="navbar navbar-expand-md bg-body py-3 matter"
+    style="transform: perspective(0px) scale(1); filter: brightness(89%)"
+  >
+    <div class="container">
+      <i class="la la-car" style="font-size: 30px"></i
+      ><a class="navbar-brand d-flex align-items-center"
+        ><img
+          class="img-fluid me-2"
+          src="../../assets/img.png"
+          style="height: 30px"
+        /><span>RookieCab</span></a
+      ><button
+        data-bs-toggle="collapse"
+        class="navbar-toggler"
+        data-bs-target="#navcol-2"
+      >
+        <span class="visually-hidden">Toggle navigation</span
+        ><span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navcol-2">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link active" (click)="onClickBookRide()">Book Ride</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" (click)="onClickProfile()">Profile</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" (click)="onClickRideHistory()">Ride History</a>
+          </li>
+        </ul>
+        <a
+          class="btn btn-secondary ms-md-2"
+          role="button"
+          (click)="onClickSignout()"
+          >Signout</a
+        >
+      </div>
+    </div>
+  </nav>
+  <app-bookride *ngIf="btnsClicked[0]" class="matter"></app-bookride>
+  <app-profile *ngIf="btnsClicked[1]" class="matter"></app-profile>
+  <app-ridehistory *ngIf="btnsClicked[2]" class="matter"></app-ridehistory>
+</div>
+<div *ngIf="!isUser">Sign Up or Log in</div>

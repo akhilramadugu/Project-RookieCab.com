@@ -1,0 +1,22 @@
+<div class="container mt-3">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Email</th>
+        <th>To Address</th>
+        <th>From Address</th>
+        <th>Resolved</th>
+        <th>Date and Time</th>
+      </tr>
+    </thead>
+    <tbody id="ridesTableBody">
+      <tr *ngFor="let row of rideHistory">
+        <td>{{ row.email }}</td>
+        <td>{{ row.toAddress }}</td>
+        <td>{{ row.fromAddress }}</td>
+        <td>{{ row.resolved }}</td>
+        <td>{{ row.dateAndTime | date : "short" }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

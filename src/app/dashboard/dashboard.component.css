@@ -1,0 +1,6 @@
+.matter {
+  font-family: "content", sans-serif;
+}
+.nav-item:hover {
+  cursor: pointer;
+}

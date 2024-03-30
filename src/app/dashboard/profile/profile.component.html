@@ -1,0 +1,47 @@
+<div class="container">
+  <form>
+    <div class="mb-3">
+      <label for="email" class="form-label">Email</label>
+      <input
+        type="email"
+        class="form-control"
+        id="email"
+        [(ngModel)]="email"
+        name="email"
+        [disabled]="true"
+      />
+    </div>
+    <div class="mb-3">
+      <label for="firstName" class="form-label">First Name</label>
+      <input
+        type="text"
+        class="form-control"
+        id="firstName"
+        [(ngModel)]="firstName"
+        name="firstName"
+      />
+    </div>
+    <div class="mb-3">
+      <label for="lastName" class="form-label">Last Name</label>
+      <input
+        type="text"
+        class="form-control"
+        id="lastName"
+        [(ngModel)]="lastName"
+        name="lastName"
+      />
+    </div>
+    <div class="mb-3">
+      <label for="phoneNumber" class="form-label">Phone Number</label>
+      <input
+        type="tel"
+        class="form-control"
+        id="phoneNumber"
+        [(ngModel)]="phoneNumber"
+        name="phoneNumber"
+      />
+    </div>
+    <button class="btn btn-secondary" (click)="onSubmit($event)">Update</button>
+  </form>
+  <p *ngIf="updateDone" class="message">Your details have been updated.</p>
+</div>

@@ -1,0 +1,32 @@
+<div>
+  <p *ngIf="zeroRides" class="message">No Available Rides</p>
+</div>
+<div *ngIf="!zeroRides">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4" *ngFor="let ride of actualRides">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Ride ID: {{ ride.id }}</h5>
+            <p class="card-text">From: {{ ride.fromAddress }}</p>
+            <p class="card-text">To: {{ ride.toAddress }}</p>
+            <p class="card-text">Date and Time: {{ ride.dateAndTime }}</p>
+            <button
+              class="btn btn-primary"
+              (click)="lockRide(ride.id)"
+              [disabled]="
+                lockedRides.includes(ride.id) &&
+                keyvalueRides[ride.id] !== email
+              "
+            >
+              Lock
+            </button>
+            <p *ngIf="messageDisplay[ride.id]" class="message">
+              {{ displayMessageText }}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
