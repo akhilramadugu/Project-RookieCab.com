@@ -14,7 +14,7 @@ ng serve
 
 ## Prerequisites 
 
-You wouldn't be able to run the entire applucation since you do not have the backend logic which you need to send requests to database (for which I have used Digital Ocean). You can run and use the frond end side of the project without any issue. To run the entire and test the entire application you might find the following code snippets helful.
+You wouldn't be able to run the entire applucation since you do not have the backend logic which you need to send requests to database (for which I have used Digital Ocean). You can run and use the frond end side of the project without any issue. To run and test the entire application you might find the following code snippets helful.
 
 ```python
 # User Signup
