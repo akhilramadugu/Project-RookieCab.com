@@ -71,7 +71,7 @@ def main(req):
     data = json.loads(req) if isinstance(req, str) else req
     sender_email = "rookie-admin@rookiecab.com"
     receiver_email = data.get('user_email')
-    password = "rookie-admin@123"
+    password = "dummy@12345"
 
     random_number = random.randint(10000, 99999)
 
@@ -146,4 +146,100 @@ def main(req):
             'headers': {'Content-Type': 'application/json'},
             'body': json.dumps({'message': 'Great', 'redirect': '/login'})
         }
+```
+```python
+# login functionality
+import json
+import mysql.connector
+import os
+
+def main(req):
+    data = json.loads(req) if isinstance(req, str) else req
+    email = data.get('user_email')
+    password = data.get('user_password')
+
+    # Get database credentials from environment variables
+    db_config = {
+        'host': os.getenv('DATABASE_URL'),
+        'user': os.getenv('DATABASE_USER'),
+        'password': os.getenv('DATABASE_PASSWORD'),
+        'database': os.getenv('DATABASE_NAME'),
+        'port': 25060
+    }
+
+    # Connect to the database
+    conn = mysql.connector.connect(**db_config)
+    cursor = conn.cursor()
+    
+    # Check if the user exists with the given password
+    cursor.execute("SELECT * FROM users WHERE email = %s AND password = %s", (email, password))
+    user = cursor.fetchone()
+
+    # Close the database connection
+    cursor.close()
+    conn.close()
+
+    # Return the appropriate response
+    if user:
+        return {
+            'statusCode': 200,
+            'headers': {'Content-Type': 'application/json'},
+            'body': json.dumps({'message': 'Login successful', 'redirect': '/dashboard'})
+        }
+    else:
+        return {
+            'statusCode': 401,
+            'headers': {'Content-Type': 'application/json'},
+            'body': json.dumps({'message': 'Invalid credentials', 'redirect': '/login'})
+        }
+```
+```python
+# Forgot Password Functionality
+import json
+import mysql.connector
+import os
+
+def main(req):
+    data = json.loads(req) if isinstance(req, str) else req
+    email = data.get('user_email')
+    password = data.get('user_password')
+
+    # Get database credentials from environment variables
+    db_config = {
+        'host': os.getenv('DATABASE_URL'),
+        'user': os.getenv('DATABASE_USER'),
+        'password': os.getenv('DATABASE_PASSWORD'),
+        'database': os.getenv('DATABASE_NAME'),
+        'port': 25060
+    }
+
+    # Connect to the database
+    conn = mysql.connector.connect(**db_config)
+    cursor = conn.cursor()
+
+    cursor.execute("SELECT * FROM users WHERE email = %s", (email,))
+    user = cursor.fetchone()
+
+    if user:
+        cursor.execute("UPDATE users SET password = %s WHERE email = %s", (password, email))
+        conn.commit()  # Commit the changes
+
+        response = {
+            'statusCode': 200,
+            'headers': {'Content-Type': 'application/json'},
+            'body': json.dumps({'message': 'Password Updated', 'redirect': '/dashboard'})
+        }
+    else:
+        response = {
+            'statusCode': 200,  # User not found
+            'headers': {'Content-Type': 'application/json'},
+            'body': json.dumps({'message': "User Doesn't exist", 'redirect': '/dashboard'})
+        }
+
+    # Close the database connection
+    cursor.close()
+    conn.close()
+
+    # Return the appropriate response
+    return response
 ```
